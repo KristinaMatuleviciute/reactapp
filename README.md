@@ -1,2 +1,2 @@
 # reactapp
-simple app with react client side
+Simple app with React, client side.
