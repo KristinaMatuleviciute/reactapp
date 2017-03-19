@@ -11,7 +11,7 @@ export default class Navigation extends Component {
   static propTypes = { };
   render () {
       return (
-        <Navbar style={{"height": "100px",backgroundColor: '#BAE7CB'}}>
+        <Navbar style={{ backgroundColor: '#BAE7CB'}}>
         <Navbar.Header>
         <Navbar.Brand>
         </Navbar.Brand>
@@ -20,15 +20,22 @@ export default class Navigation extends Component {
         <Navbar.Collapse>
         <Nav pullLeft>
         <LinkContainer to="index">
-        <NavItem style={{"width": "200px"}} eventKey={1}>
+        <NavItem style={{backgroundColor: '#BAE7CB', width: '150px'}} eventKey={1}>
         <h2>Home</h2>
         </NavItem>
         </LinkContainer>
         </Nav>
         <Nav pullLeft>
         <LinkContainer to="profile">
-        <NavItem style={{"width": "200px"}} eventKey={2}>
-        <h2>Profile</h2>
+        <NavItem style={{backgroundColor: '#BAE7CB', width: '150px'}} eventKey={2}>
+        <h2>Contacts</h2>
+        </NavItem>
+        </LinkContainer>
+        </Nav>
+        <Nav pullLeft>
+        <LinkContainer to="gallery">
+        <NavItem style={{backgroundColor: '#BAE7CB', width: '150px'}} eventKey={3}>
+        <h2>Gallery</h2>
         </NavItem>
         </LinkContainer>
         </Nav>
