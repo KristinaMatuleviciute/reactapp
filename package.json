@@ -12,7 +12,8 @@
   "scripts": {
     "watch": "webpack --watch",
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start-react-server": "webpack-dev-server",
+    "start": "node server/start.js"
   },
   "dependencies": {
     "babel-core": "^6.24.0",
@@ -25,6 +26,7 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "body-parser": "^1.15.1",
+    "express": "^4.15.2",
     "postcss-loader": "^0.9.1",
     "react": "^15.0.1",
     "react-bootstrap": "^0.30.8",
