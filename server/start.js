@@ -40,7 +40,7 @@ app.post('/submit', function(req, res) {
     });
 });
 
-app.get('/submit', function(req, res) {
+app.get('/getlist', function(req, res) {
     fs.readFile(USER_FILE, function(err, data) {
         if (err) {
             console.error(err);

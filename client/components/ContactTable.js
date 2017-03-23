@@ -19,17 +19,16 @@ export default class ContantTable extends React.Component {
     //var id = localStorage.getItem('id');
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:3010/submit',
+      url: 'http://localhost:3010/getlist',
       dataType: 'json',
       success: (data) =>{
         console.log('resdata', data)
          if (this.loadInterval != false){
            this.setState({items:data});
-           console.log('4:', JSON.stringify(items))
         }
       },
       error: (xhr, status, err) => {
-      //  console.log('err', err )
+         console.log('err', err )
       }
     });
   }
@@ -65,7 +64,7 @@ export default class ContantTable extends React.Component {
       var goodJson = Jsonic(total);
       $.ajax({
         type: 'POST',
-        url: '/submit',
+        url: 'http://localhost:3010/submit',
         data: goodJson,
         success: function(data){
           console.log('submited data', JSON.stringify(data));
@@ -117,21 +116,22 @@ export default class ContantTable extends React.Component {
           var rows = [];
           var that = this;
           var items = this.state.items;
-          console.log('iii', items)
-          items.forEach(function(item){
-            console.log('2222', JSON.stringify(item.user.id));
-            rows.push(<Row key={JSON.stringify(item.user.id)} item={item} onDelete={that.handleRemove}/>);
-          });
+
+          if (items !== null){
+            for (let item of items){
+            console.log('itemid', item.user.id );
+            rows.push(<Row key={item.user.id} item={item} onDelete={that.handleRemove}/>);
+          };
+        }
           var total = this.state.name + ' ' +  this.state.surname;
           return (<div>
               <div>
-            <h1>users</h1>
-             {this.state.item}
+
               </div>
             <Table className="tableSmall table-striped ">
             <thead>
             <tr>
-            <td colSpan="5" ><b>Users</b><Button bsStyle="info"  className="btn pull-right" id="add"
+            <td colSpan="5" ><b>  <h1>Users</h1> </b><Button bsStyle="info"  className="btn pull-right" id="add"
             onClick={this.open} > <span className="glyphicon glyphicon-plus" aria-hidden="true"></span></Button> </td>
             </tr>
             <tr>

@@ -19,10 +19,10 @@ export default class Row extends React.Component {
   render (){
     return (
       <tr>
-      <td>{this.props.item.name}</td>
-      <td>{this.props.item.surname}</td>
-      <td><EditTable item={this.props.item}/></td>
-      <td><Button className="btn btn-secondary" style={{"marginTop": "0px"}} onClick={this.handleRemove.bind(this)}><span className="glyphicon glyphicon-remove" aria-hidden="true"></span></Button></td>
+      <td>{this.props.item.user.name}</td>
+      <td>{this.props.item.user.surname}</td>
+      <td>edit</td>
+      <td><Button bsStyle="danger" style={{"marginTop": "0px"}} onClick={this.handleRemove.bind(this)}><span className="glyphicon glyphicon-remove" aria-hidden="true"></span></Button></td>
       </tr>
     )
   }
