@@ -49,7 +49,7 @@ export default class Gallery extends React.Component {
       ]
     };
     return (
-      <div style={{backgroundColor: '#E3F5EA'}}>
+      <div style={{backgroundColor: '#E3F5EA', width: '100%'}}>
       <div className='slideshow' style={{'padding': '10px'}} >
       <Slider {...settings}>
           <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={justbreathe} /></div>

@@ -1,0 +1,43 @@
+/*--------------------------------------------------------------------
+*
+* LISTS
+*
+--------------------------------------------------------------------*/
+
+.list-unstyled
+  margin: 0
+  padding: 0
+  list-style: none
+
+.list-default
+  padding-left: $ui-spacing-half
+
+.list-inline
+  li
+    float: left
+    
+    &:not(:last-child)
+      margin-right: $ui-spacing
+      
+dl:not(:last-of-type)
+  padding-bottom: $ui-spacing-half
+  border-bottom: $ui-border
+      
+dd
+  margin-left: 0
+  
+dt
+  font-weight: $font-weight-bold
+  
+dd, dt
+  float: left
+  width: 50%
+      
+@media screen and (max-width: 48em)
+
+  dd, dt
+    width: 100%
+
+  .list-inline
+    li:not(:last-child)
+      margin-right: $ui-spacing-half

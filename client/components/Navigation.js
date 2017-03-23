@@ -3,6 +3,7 @@
 import React, { Component, PropTypes } from 'react';
 import Home from './Index';
 import Profile from './Profile';
+import List from './ContactTable';
 import { Route, RouteHandler, Link } from 'react-router';
 import { Nav, Button, NavItem, Navbar, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -36,6 +37,13 @@ export default class Navigation extends Component {
         <LinkContainer to="gallery">
         <NavItem style={{backgroundColor: '#BAE7CB', width: '150px'}} eventKey={3}>
         <h2>Gallery</h2>
+        </NavItem>
+        </LinkContainer>
+        </Nav>
+        <Nav pullLeft>
+        <LinkContainer to="table">
+        <NavItem style={{backgroundColor: '#BAE7CB', width: '150px'}} eventKey={3}>
+        <h2>List</h2>
         </NavItem>
         </LinkContainer>
         </Nav>

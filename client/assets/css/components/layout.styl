@@ -1,0 +1,37 @@
+/*--------------------------------------------------------------------
+*
+* LAYOUT
+*
+--------------------------------------------------------------------*/
+
+// Center children vertically
+.vertical-center
+  display: flex
+  align-items: center
+  justify-content: center
+  align: center
+
+// Row with no negative margins
+
+.row.no-gutter
+  margin-left: 0
+  margin-right: 0
+
+// Floats
+.fl-left
+  float: left
+
+.fl-right
+  float: right
+
+@media screen and (min-width: 48em)
+
+  // Sticky footer
+  .shell
+    display: flex
+    min-height: 100vh
+    flex-direction: column
+
+  .page-wrapper,
+  .page-wrapper-expanded
+    flex: 1

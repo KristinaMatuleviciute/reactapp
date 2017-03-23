@@ -21,9 +21,12 @@ export default class Layout extends React.Component {
       {this.props.children}
       </div>
       </div>
-      {/* loading footer component */}    
+
+      {/* loading footer component */}
       </div>
+
       </div>
+
     )
   }
 }

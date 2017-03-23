@@ -1,5 +1,5 @@
 # reactapp
-Simple app with React, client side with express server side.
+Simple app with React- client side and Express server side.
 
 ## Install
 To install the app locally, simply clone the repo,

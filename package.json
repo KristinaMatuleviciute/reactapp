@@ -27,6 +27,7 @@
     "babel-preset-stage-0": "^6.3.13",
     "body-parser": "^1.15.1",
     "express": "^4.15.2",
+    "jsonic": "^0.2.2",
     "postcss-loader": "^0.9.1",
     "react": "^15.0.1",
     "react-bootstrap": "^0.30.8",
