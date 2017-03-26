@@ -8,9 +8,15 @@ import surface from '../assets/img/surface.jpg';
 import water from '../assets/img/water.jpg';
 import billgates from '../assets/img/billgatse.jpg';
 import conversation from '../assets/img/conversation.jpg';
-import fault from '../assets/img/fault.jpg';
 import breathe from '../assets/img/breathe.jpg';
 import justbreathe from '../assets/img/justbreathe.jpg';
+import life from '../assets/img/life.jpg';
+import miracle from '../assets/img/miracle.jpg';
+import nature from '../assets/img/nature.jpg';
+import nice from '../assets/img/nice.jpg';
+import wolfes from '../assets/img/wolfes.jpg';
+import rukas from '../assets/img/rukas.jpg';
+import permision from '../assets/img/permision.jpg';
 import Slider from 'react-slick';
 
 export default class Gallery extends React.Component {
@@ -50,7 +56,7 @@ export default class Gallery extends React.Component {
     };
     return (
       <div style={{backgroundColor: '#E3F5EA', width: '100%'}}>
-      <div className='slideshow' style={{'padding': '50px'}} >
+      <div className='slideshow' style={{'padding': '20px'}} >
       <Slider {...settings}>
           <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={justbreathe} /></div>
         	<div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={quote} /></div>
@@ -60,8 +66,14 @@ export default class Gallery extends React.Component {
           <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={water} /></div>
           <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={billgates} /></div>
           <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={conversation} /></div>
-          <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={fault} /></div>
           <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={breathe} /></div>
+          <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={life} /></div>
+          <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={miracle} /></div>
+          <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={wolfes} /></div>
+          <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={nature} /></div>
+          <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={nice} /></div>
+          <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={rukas} /></div>
+          <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={permision} /></div>
       </Slider>
       </div>
       </div>

@@ -7,7 +7,7 @@ export default class Index extends React.Component {
   render () {
     return (
       <div style={{backgroundColor: '#E3F5EA', width: '100%'}}>
-      <div style={{'padding': '50px'}} >
+      <div style={{'padding': '20px'}} >
       <a href="#"><img className='picture' style={{'width': '300px'}} src={as}/></a>
       <h2>Welcome </h2>
       <h4>to my personal site
