@@ -127,11 +127,12 @@ export default class ContantTable extends React.Component {
           var total = this.state.name + ' ' +  this.state.surname;
           return (
             <div style={{backgroundColor: '#E3F5EA', width: '100%'}}>
-            <div style={{'padding': '50px'}} >
-            <Table className="tableSmall table-striped ">
+            <div style={{'padding': '20px'}} >
+
+            <Table responsive striped bordered condensed hover>
             <thead>
             <tr>
-            <td colSpan="5" ><b>  <h1>Friends</h1> </b><Button bsStyle="info"  className="btn pull-right" id="add"
+            <td colSpan="6" ><b>  <h1>Friends</h1> </b><Button bsStyle="info"  className="btn pull-right" id="add"
             onClick={this.open} > <span className="glyphicon glyphicon-plus" aria-hidden="true"></span></Button> </td>
             </tr>
             <tr>
