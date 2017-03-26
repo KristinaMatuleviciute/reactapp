@@ -1,0 +1,287 @@
+/*--------------------------------------------------------------------
+*
+* TABLES
+*
+--------------------------------------------------------------------*/
+
+
+.processes-table
+  display: block
+  overflow-x: auto
+  overflow-y: scroll
+  height: 800%
+  width: 80%
+  max-width: 80%
+  border: $ui-border
+  border-radius: $ui-radius
+  position:absolute
+  margin-top:20%
+  left:10%
+  margin-bottom: 50%
+
+  th
+    background-color: lighten($gray-lighter, 70%)
+    text-align: left
+  th, td
+    border-right: $ui-border
+    border-bottom: $ui-border
+    min-width: 80%
+    white-space: nowrap
+
+.addPolicyPage
+  position:absolute
+  top:15%
+  left:10%
+
+.tableSmall
+  width: 50%
+  max-width: 50%
+  border: $ui-border
+  border-radius: $ui-radius
+  position:absolute
+  margin-top:1%
+  left:15%
+  margin-bottom: 50%
+  border-spacing: 0
+
+  thead, tbody, tr, td, th
+    display: block
+
+  tr:after
+    content: ' '
+    display: block
+    visibility: hidde
+    clear: both
+
+
+
+
+  th
+    background-color: lighten($gray-lighter, 70%)
+
+  tbody
+    overflow-y:auto
+    height:300px
+
+  tr
+    width: 100%
+    text-align: left
+    border: $ui-border
+
+
+  tbody td, thead th
+    width: 25%
+    float: left
+    word-wrap: break-word
+    padding: 8px
+
+.tableSmallest
+  width: 50%
+  max-width: 50%
+  border: $ui-border
+  border-radius: $ui-radius
+  position:absolute
+  margin-top:1%
+  left:15%
+  margin-bottom: 50%
+  border-spacing: 0
+
+  thead, tbody, tr, td, th
+    display: block
+
+  tr:after
+    content: ' '
+    display: block
+    visibility: hidde
+    clear: both
+
+
+  th
+    background-color: lighten($gray-lighter, 70%)
+
+  tbody
+    overflow-y:auto
+    height:300px
+
+  tr
+    width: 100%
+    text-align: left
+    border: $ui-border
+
+
+  tbody td, thead th
+    width: 33.3%
+    float: left
+    word-wrap: break-word
+    padding: 8px
+
+
+.table
+  width: 70%
+  max-width: 70%
+  border: $ui-border
+  border-radius: $ui-radius
+  position:absolute
+  margin-top:1%
+  left:15%
+  margin-bottom: 50%
+  border-spacing: 0
+  overflow-y:auto
+  height:500px
+
+  thead, tbody, tr, td, th
+    display: block
+
+  tr:after
+    content: ' '
+    display: block
+    visibility: hidde
+    clear: both
+
+  thead th
+    background-color: lighten($gray-lighter, 70%)
+
+
+  tbody
+    overflow-y:auto
+    height:400px
+
+  tr
+    width: 100%
+    text-align: left
+    border: $ui-border
+
+
+
+  tbody td, thead th
+       width: 20%
+       float: left
+       word-wrap: break-word
+       padding: 8px
+
+
+
+.table2
+  width: 70%
+  max-width: 70%
+  border: $ui-border
+  border-radius: $ui-radius
+  position:absolute
+  margin-top:1%
+  left:15%
+  margin-bottom: 50%
+  border-spacing: 0
+  overflow-y:auto
+  height:500px
+
+  thead, tbody, tr, td, th
+    display: block
+
+
+  tr:after
+    content: ' '
+    display: block
+    visibility: hidde
+    clear: both
+
+  thead th
+    background-color: lighten($gray-lighter, 70%)
+
+
+  tbody
+    overflow-y:auto
+    height:450px
+
+  tr
+    width: 100%
+    text-align: left
+    border: $ui-border
+
+
+
+  tbody td, thead th
+       width: 12.5%
+       float: left
+       word-wrap: break-word
+       padding: 8px
+
+
+
+
+@media screen and (max-width:880px){
+
+.table {
+    width: 90%
+    max-width: 90%
+    margin-top:1%
+    left:5%
+    margin-bottom: 30%
+    font-size: 8px
+
+
+    th, td {
+      padding: $ui-spacing-fourth
+      }
+
+    tbody {
+        overflow-y:auto
+        height:55%
+      }
+    }
+
+.table2 {
+    width: 90%
+    max-width: 90%
+    margin-top:1%
+    left:5%
+    margin-bottom: 30%
+    font-size: 8px
+
+
+    th, td {
+     padding: $ui-spacing-fourth
+    }
+
+    tbody {
+      overflow-y:auto
+      height:55%
+    }
+  }
+
+.tableSmall {
+    width: 90%
+    max-width: 90%
+    margin-top:1%
+    left:5%
+    margin-bottom: 30%
+    font-size: 12px
+
+    th, td {
+     padding: $ui-spacing-fourth
+    }
+
+    tbody {
+      overflow-y:auto
+      height:60%
+    }
+    }
+
+.tableSmallest {
+    width: 90%
+    max-width: 90%
+    margin-top:1%
+    left:5%
+    margin-bottom: 30%
+    font-size: 12px
+
+    th, td {
+     padding: $ui-spacing-fourth
+    }
+
+    tbody {
+      overflow-y:auto
+      height:60%
+    }
+    }
+
+}
