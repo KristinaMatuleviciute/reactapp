@@ -125,10 +125,9 @@ export default class ContantTable extends React.Component {
           };
         }
           var total = this.state.name + ' ' +  this.state.surname;
-          return (<div>
-              <div>
-
-              </div>
+          return (
+            <div style={{backgroundColor: '#E3F5EA', width: '100%'}}>
+            <div style={{'padding': '50px'}} >
             <Table className="tableSmall table-striped ">
             <thead>
             <tr>
@@ -201,6 +200,7 @@ export default class ContantTable extends React.Component {
 
             </Modal.Footer>
             </Modal>
+            </div>
             </div>
           )
         }
