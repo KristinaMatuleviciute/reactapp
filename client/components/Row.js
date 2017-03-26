@@ -21,6 +21,8 @@ export default class Row extends React.Component {
       <tr>
       <td>{this.props.item.user.name}</td>
       <td>{this.props.item.user.surname}</td>
+      <td>{this.props.item.user.email}</td>
+      <td>{this.props.item.user.phone}</td>
       <td>edit</td>
       <td><Button bsStyle="danger" style={{"marginTop": "0px"}} onClick={this.handleRemove.bind(this)}><span className="glyphicon glyphicon-remove" aria-hidden="true"></span></Button></td>
       </tr>

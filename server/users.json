@@ -1,30 +1,20 @@
 [
     {
         "user": {
-            "id": "Tue Mar 21 2017 20:00:47 GMT+0000 (GMT)",
-            "name": "vardas",
-            "surname": "pavarde"
+            "id": "1490562286876",
+            "name": "John",
+            "surname": "Smith",
+            "email": "johnt@yahoo.com",
+            "phone": "08577722222"
         }
     },
     {
         "user": {
-            "id": "Tue Mar 21 2017 20:01:22 GMT+0000 (GMT)",
-            "name": "test2",
-            "surname": "test2"
-        }
-    },
-    {
-        "user": {
-            "id": "Thu Mar 23 2017 23:09:12 GMT+0000 (GMT)",
-            "name": "vienas ",
-            "surname": "du"
-        }
-    },
-    {
-        "user": {
-            "id": "Thu Mar 23 2017 23:10:58 GMT+0000 (GMT)",
-            "name": "test3",
-            "surname": "test3"
+            "id": "1490562353906",
+            "name": "Kate",
+            "surname": "McDoghnah",
+            "email": "kate@yahoo.com",
+            "phone": "08522229999"
         }
     }
 ]
