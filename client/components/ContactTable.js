@@ -16,13 +16,11 @@ export default class ContantTable extends React.Component {
   }
 
   loadData(){
-    //var id = localStorage.getItem('id');
     $.ajax({
       type: 'GET',
       url: 'http://localhost:3010/getlist',
       dataType: 'json',
       success: (data) =>{
-        console.log('resdata', data)
          if (this.loadInterval != false){
            this.setState({items:data});
         }
@@ -59,8 +57,11 @@ export default class ContantTable extends React.Component {
       event.preventDefault();
       var name = this.state.name;
       var surname = this.state.surname;
-      var id = Date();
-      var total = {id, name, surname};
+      var email = this.state.email;
+      var phone = this.state.phone;
+      var d = new Date();
+      var id = d.getTime();
+      var total = {id, name, surname, email, phone};
       var goodJson = Jsonic(total);
       $.ajax({
         type: 'POST',
@@ -74,7 +75,7 @@ export default class ContantTable extends React.Component {
         }
       })
       if (this.loadInterval != false){
-        this.setState({  id: '', name: '', surname: ''});
+        this.setState({  id: '', name: '', surname: '', email:'', phone:''});
         this.setState({ showModal: false });
       }
       this.loadData();
@@ -92,11 +93,11 @@ export default class ContantTable extends React.Component {
       }
 
     handleRemove(item) {
-        var id = item.id
-        if(confirm('Are you sure you want to delete  ' + item.name + ' ?')){
+        var id = item.user.id
+        if(confirm('Are you sure you want to delete  ' + item.user.name + ' ?')){
           $.ajax({
             type: 'DELETE',
-            url: '/server/delete/'+id,
+            url: 'http://localhost:3010/delete/'+id,
             data: id,
             success: function(data){
 
@@ -106,7 +107,7 @@ export default class ContantTable extends React.Component {
               console.error('we have an error: ', status, err.toString());
             }
           });
-        //  this.loadData();
+          this.loadData();
           this.forceUpdate();
           window.location = '/#/table';
         }
@@ -119,24 +120,26 @@ export default class ContantTable extends React.Component {
 
           if (items !== null){
             for (let item of items){
-            console.log('itemid', item.user.id );
+
             rows.push(<Row key={item.user.id} item={item} onDelete={that.handleRemove}/>);
           };
         }
           var total = this.state.name + ' ' +  this.state.surname;
-          return (<div>
-              <div>
-
-              </div>
+          return (
+            <div style={{backgroundColor: '#E3F5EA', width: '100%'}}>
+            <div style={{'padding': '50px'}} >
             <Table className="tableSmall table-striped ">
             <thead>
             <tr>
-            <td colSpan="5" ><b>  <h1>Users</h1> </b><Button bsStyle="info"  className="btn pull-right" id="add"
+            <td colSpan="5" ><b>  <h1>Friends</h1> </b><Button bsStyle="info"  className="btn pull-right" id="add"
             onClick={this.open} > <span className="glyphicon glyphicon-plus" aria-hidden="true"></span></Button> </td>
             </tr>
             <tr>
             <th>Name</th>
             <th>Surname</th>
+            <th>Email</th>
+            <th>Phone No</th>
+
             <th>Edit</th>
             <th>Delete</th>
             </tr>
@@ -156,14 +159,11 @@ export default class ContantTable extends React.Component {
             <FormGroup controlId="formBasicText" role="form" >
 
             <ControlLabel>Name</ControlLabel>
-            <FormControl
-            type="text"
-            name="name"
+            <FormControl type="text" name="name"
             value={this.state.name}
             placeholder="Enter Name"
             onChange={this.handleChange.bind(this, 'name')}
-            required = {true}
-            />
+            required = {true}/><br/>
 
             <ControlLabel>Surname: </ControlLabel>
             <FormControl type="text" name="surname"
@@ -171,6 +171,22 @@ export default class ContantTable extends React.Component {
             placeholder="Enter surname"
             onChange={this.handleChange.bind(this, 'surname')}
             required = {true}/><br/>
+
+            <ControlLabel>Email: </ControlLabel>
+            <FormControl type="email" name="email"
+            value={this.state.email}
+            placeholder="Enter email"
+            onChange={this.handleChange.bind(this, 'email')}
+            required = {true}/><br/>
+
+            <ControlLabel>Phone Number: </ControlLabel>
+            <FormControl type="text" name="phone"
+            value={this.state.phone}
+            placeholder="Enter phone number"
+            onChange={this.handleChange.bind(this, 'phone')}
+            required = {true}/><br/>
+
+
 
             <Button bsStyle="info" type="submit"   >Add </Button>
             </FormGroup>
@@ -184,6 +200,7 @@ export default class ContantTable extends React.Component {
 
             </Modal.Footer>
             </Modal>
+            </div>
             </div>
           )
         }

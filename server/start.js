@@ -4,6 +4,7 @@ var Path = require('path');
 var Express = require('express');
 var BodyParser = require('body-parser');
 var fs = require('fs');
+var _ = require('lodash');
 
 var USER_FILE = Path.join(__dirname, 'users.json')
 
@@ -17,7 +18,6 @@ app.use(BodyParser.urlencoded({
 
 app.post('/submit', function(req, res) {
     var body = req.body;
-    console.log('server side:data', body);
     fs.readFile(USER_FILE, function(err, data) {
         if (err) {
             console.error(err);
@@ -27,7 +27,6 @@ app.post('/submit', function(req, res) {
         var newUser = {
             user: body
         };
-        console.log('server side:newuser', newUser);
         users.push(newUser);
         fs.writeFile(USER_FILE, JSON.stringify(users, null, 4), function(err) {
             if (err) {
@@ -35,7 +34,6 @@ app.post('/submit', function(req, res) {
                 process.exit(1);
             }
             res.json(users);
-            console.log('server side:users', users);
         });
     });
 });
@@ -47,10 +45,35 @@ app.get('/getlist', function(req, res) {
             process.exit(1);
         }
         res.json(JSON.parse(data));
-        console.log('server side2:' + JSON.parse(data))
-        console.log('server side3:' + JSON.stringify(JSON.parse(data)))
     });
 });
+
+app.delete('/delete/:id', function(req, res) {
+    var id = req.params.id;
+    //console.log('id', id);
+    fs.readFile(USER_FILE, function(err, data) {
+        if (err) {
+            console.error(err);
+            process.exit(1);
+        }
+
+        var myArray = JSON.parse(data);
+        myArray =
+            myArray.filter(function(el) {
+                return el.user.id != id;
+            });
+        fs.writeFile(USER_FILE, JSON.stringify(myArray, null, 4), function(err) {
+            if (err) {
+                console.error(err);
+                process.exit(1);
+            }
+            res.json(myArray);
+        });
+
+    });
+});
+
+
 
 var server = app.listen(port);
 console.log('Server listening on port localhost:' + port);

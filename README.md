@@ -1,5 +1,9 @@
 # reactapp
-Simple app with React- client side and Express server side.
+Simple app with React- client side, webpack for module bundle and Express for server side.
+3 views: home page,
+         table with friends contact information and add, delete functions,
+         picture gallery.
+
 
 ## Install
 To install the app locally, simply clone the repo,
