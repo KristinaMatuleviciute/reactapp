@@ -55,8 +55,8 @@ export default class Gallery extends React.Component {
       ]
     };
     return (
-      <div style={{backgroundColor: '#E3F5EA', width: '100%'}}>
-      <div className='slideshow' style={{'padding': '20px'}} >
+
+      
       <Slider {...settings}>
           <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={justbreathe} /></div>
         	<div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={quote} /></div>
@@ -75,8 +75,8 @@ export default class Gallery extends React.Component {
           <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={rukas} /></div>
           <div><img className='picture' style={{'width': '300px', 'hight': '200px'}} src={permision} /></div>
       </Slider>
-      </div>
-      </div>
+
+
     )
   }
 }

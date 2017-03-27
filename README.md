@@ -13,7 +13,7 @@ Simple app with [ReactJS] - for client side, [Webpack] for module bundle and [Ex
  + Feature 3 - Table, displaying friends details: name, surname, email, phone number with add and delete functions, data is saving to user.json file.
  + Feature 4 - Responsive navigation.
 
-## Installation requirements.
+## Installation requirements
 
 ## Install
 
@@ -60,9 +60,9 @@ Also you can watch the files for changes and automatically rebuild the sources r
 npm run watch
 ```
 
-## App Component Design.
+## App Component Design
 
-## UI Design.
+## UI Design
 
 ### Home Page
 ![][image1]
@@ -75,13 +75,13 @@ npm run watch
 
 ## Routing in client side :
 Using react-router
-+ Route path='index' name='index' component={Index} - displays homepage
++ Route path='index' name='index' component={Index} - displays Homepage
 + Route path='gallery' name='gallery' component={Gallery} - displays view of Picture Galerry
-+ Route path='table' name='table' component={ContactTable}- displays view of Contact table
++ Route path='table' name='table' component={ContactTable}- displays view of Contact Table
 
 ## Routing between server side and client side:
-+ /submit - submits friends details on form submition to users.json file.
-+ /getlist - gets details of all friends from users.json file to front end table.
++ /submit - submits friend's details on form submition to users.json file.
++ /getlist - gets details of all friends from server side users.json file to front end table.
 + /delete/:id - deletes friend's details by id from users.json file.
 
 

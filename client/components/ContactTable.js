@@ -3,12 +3,13 @@
 import React from 'react';
 import Row from './Row';
 import Jsonic from 'jsonic';
+import EditTable from './EditTable'
 import { Nav, Button, NavItem, Checkbox, Navbar, NavDropdown, MenuItem, Table, Modal, PageHeader, FormGroup, FormControl, ControlLabel, HelpBlock } from 'react-bootstrap';
 
 export default class ContantTable extends React.Component {
   constructor() {
     super();
-    this.state = { name: '', surname:'', id: '', showModal: false, items: [] };
+    this.state = { name: '', address:'', id: '', phone_number:'', age:'' , showModal: false, items: [] };
     this.close = this.close.bind(this);
     this.open= this.open.bind(this);
     this.handleRemove= this.handleRemove.bind(this);
@@ -18,7 +19,7 @@ export default class ContantTable extends React.Component {
   loadData(){
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:3010/getlist',
+      url: 'http://localhost:8080/api/users/',
       dataType: 'json',
       success: (data) =>{
          if (this.loadInterval != false){
@@ -46,7 +47,6 @@ export default class ContantTable extends React.Component {
     componentDidMount() {
        this.loadData();
        this.loadInterval = setInterval(this.loadData, 2000);
-
       }
 
     componentWillUnmount () {
@@ -56,16 +56,15 @@ export default class ContantTable extends React.Component {
     handleSubmit (event) {
       event.preventDefault();
       var name = this.state.name;
-      var surname = this.state.surname;
+      var address = this.state.address;
+      var phone_number = this.state.phone_number;
       var email = this.state.email;
-      var phone = this.state.phone;
-      var d = new Date();
-      var id = d.getTime();
-      var total = {id, name, surname, email, phone};
+      var age = this.state.age;
+      var total = { name, address, phone_number, email, age};
       var goodJson = Jsonic(total);
       $.ajax({
         type: 'POST',
-        url: 'http://localhost:3010/submit',
+        url: 'http://localhost:8080/api/users/',
         data: goodJson,
         success: function(data){
           console.log('submited data', JSON.stringify(data));
@@ -75,7 +74,7 @@ export default class ContantTable extends React.Component {
         }
       })
       if (this.loadInterval != false){
-        this.setState({  id: '', name: '', surname: '', email:'', phone:''});
+        this.setState({ name: '', address: '', phone_number:'', email:'', age:''});
         this.setState({ showModal: false });
       }
       this.loadData();
@@ -93,11 +92,11 @@ export default class ContantTable extends React.Component {
       }
 
     handleRemove(item) {
-        var id = item.user.id
-        if(confirm('Are you sure you want to delete  ' + item.user.name + ' ?')){
+        var id = item._id
+        if(confirm('Are you sure you want to delete  ' + item.name + ' ?')){
           $.ajax({
             type: 'DELETE',
-            url: 'http://localhost:3010/delete/'+id,
+            url: 'http://localhost:8080/api/users/'+ id,
             data: id,
             success: function(data){
 
@@ -113,33 +112,38 @@ export default class ContantTable extends React.Component {
         }
       }
 
+    viewProfile(id) {
+        localStorage.setItem('id', id);
+        window.location = '/#/profile';
+  }
+
         render () {
           var rows = [];
           var that = this;
           var items = this.state.items;
-
           if (items !== null){
             for (let item of items){
 
-            rows.push(<Row key={item.user.id} item={item} onDelete={that.handleRemove}/>);
+            rows.push(<Row key={item._id} item={item} onDelete={that.handleRemove} onViewprofile={that.viewProfile}/>);
           };
         }
-          var total = this.state.name + ' ' +  this.state.surname;
+          //var total = this.state.name + ' ' +  this.state.address;
           return (
-            <div style={{backgroundColor: '#E3F5EA', width: '100%'}}>
-            <div style={{'padding': '20px'}} >
+            <div style={{backgroundColor: '#E3F5EA'}}>
+            <div>
 
-            <Table responsive striped bordered condensed hover>
+            <Table responsive striped bordered >
             <thead>
             <tr>
-            <td colSpan="6" ><b>  <h1>Friends</h1> </b><Button bsStyle="info"  className="btn pull-right" id="add"
+            <td colSpan="7"><b>  <h1>Friends</h1> </b><Button bsStyle="info"  className="btn pull-right" id="add"
             onClick={this.open} > <span className="glyphicon glyphicon-plus" aria-hidden="true"></span></Button> </td>
             </tr>
             <tr>
             <th>Name</th>
-            <th>Surname</th>
-            <th>Email</th>
+            <th>Address</th>
             <th>Phone No</th>
+            <th>Email</th>
+            <th>Age</th>
 
             <th>Edit</th>
             <th>Delete</th>
@@ -166,25 +170,32 @@ export default class ContantTable extends React.Component {
             onChange={this.handleChange.bind(this, 'name')}
             required = {true}/><br/>
 
-            <ControlLabel>Surname: </ControlLabel>
-            <FormControl type="text" name="surname"
-            value={this.state.surname}
-            placeholder="Enter surname"
-            onChange={this.handleChange.bind(this, 'surname')}
+            <ControlLabel>Address: </ControlLabel>
+            <FormControl type="text" name="address"
+            value={this.state.address}
+            placeholder="Enter address"
+            onChange={this.handleChange.bind(this, 'address')}
+            required = {true}/><br/>
+
+            <ControlLabel>Phone No: </ControlLabel>
+            <FormControl type="text" name="phone_number"
+            value={this.state.phone_number}
+            placeholder="Enter Phone number eg. : 0851652342"
+            onChange={this.handleChange.bind(this, 'phone_number')}
             required = {true}/><br/>
 
             <ControlLabel>Email: </ControlLabel>
             <FormControl type="email" name="email"
             value={this.state.email}
-            placeholder="Enter email"
+            placeholder="Enter email eg. : name@gmail.com"
             onChange={this.handleChange.bind(this, 'email')}
             required = {true}/><br/>
 
-            <ControlLabel>Phone Number: </ControlLabel>
-            <FormControl type="text" name="phone"
-            value={this.state.phone}
-            placeholder="Enter phone number"
-            onChange={this.handleChange.bind(this, 'phone')}
+            <ControlLabel>Age: </ControlLabel>
+            <FormControl type="text" name="age"
+            value={this.state.age}
+            placeholder="Enter age"
+            onChange={this.handleChange.bind(this, 'age')}
             required = {true}/><br/>
 
 
