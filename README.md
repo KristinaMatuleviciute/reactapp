@@ -1,13 +1,16 @@
 
-# Assignment 1 - ReactJS app.
-Name: Kristina Matulevciute
+# Assignment 1 - ReactJS app
 
-## Overview.
-Simple app with [ReactJS] - for client side, [Webpack] for module bundle and [Expressjs] for server side. 3 views: Home page, Table with friends' contacts information and add, delete functions, Picture gallery as a slide show. This application is responsive, all views are availble in smaller screens.
+- __Lead Maintainer:__ [Kristina Matuleviciute][Lead]
+
+## Overview
+Simple app with [ReactJS] - for client side, [Webpack] for module bundle and [Expressjs] for server side.
+3 views: Home page, Table with friends' contacts information and add, delete functions, Picture gallery as a slide show. This application is responsive, all views are availble in smaller screens.
+
 
  + Feature 1 - Home page with image and text.
- + Feature 2 - Slide-show of pictures , with manual and auto control.
- + Feature 3 - Table , displaying friends details: name, surname, email, phone number with add and delete functions, data is saving to user.json file
+ + Feature 2 - Slide-show of pictures , with manual control and auto play .
+ + Feature 3 - Table, displaying friends details: name, surname, email, phone number with add and delete functions, data is saving to user.json file.
  + Feature 4 - Responsive navigation.
 
 ## Installation requirements.
@@ -43,7 +46,7 @@ npm run start
 
 Which will start on port [3010].
 
-To start React server run:
+Or you can start React server instead of npm run start just run:
 
 ```
 npm run start-react-server
@@ -61,20 +64,20 @@ npm run watch
 
 ## UI Design.
 
-Home Page
+### Home Page
 ![][image1]
 
-Picture Gallery
+### Picture Gallery
 ![][image2]
 
-Contacts table
+### Contacts table
 ![][image3]
 
-## Routing in client side:
-
-+ <Route path='index' name='index' component={Index}></Route> - displays homepage
-+ <Route path='gallery' name='gallery' component={Gallery}></Route> - displays view of picture galerry
-+ <Route path='table' name='table' component={ContactTable}></Route> - displays view of Contact table
+## Routing in client side :
+Using react-router
++ Route path='index' name='index' component={Index} - displays homepage
++ Route path='gallery' name='gallery' component={Gallery} - displays view of Picture Galerry
++ Route path='table' name='table' component={ContactTable}- displays view of Contact table
 
 ## Routing between server side and client side:
 + /submit - submits friends details on form submition to users.json file.
@@ -84,7 +87,7 @@ Contacts table
 
 ## Independent learning.
 
-I implemmented Webpack for module bunduling and Experessjs for server side. For navigation between Reactjs components I used react-router.  As well I implemented npm module react-slick for slide show, which has auto play and manual managment . I created a table with add and delete functions with ajax calls between server side and client side and all entries is saved in user, json file in server side. For ui features I am using react-bootsrap.
+I implemmented Webpack for module bunduling and Experessjs for server side. For navigation between Reactjs components I used react-router.  As well I implemented npm module react-slick for slide show, which has auto play and manual control . I created a table with add and delete functions with ajax calls between server side and client side and all entries is saved in user.json file in server side. For ui features: responsve navigation, table, buttons I am using react-bootsrap.
 
 ## License
 
@@ -94,7 +97,7 @@ Copyright (c) 2017, Kristina Matuleviciute. Licensed under [MIT].
 [image1]:./client/assets/img/homepage.jpg
 [image2]:./client/assets/img/galerry.jpg
 [image3]:./client/assets/img/table.jpg
-
+[Lead]: https://github.com/KristinaMatuleviciute
 [3010]: http://localhost:3010/
 [8080]: http://localhost:8080/
 [mit]: ./LICENSE
