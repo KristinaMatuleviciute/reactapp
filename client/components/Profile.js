@@ -18,7 +18,7 @@ export default class Profile extends React.Component {
       var id =  localStorage.getItem('id')
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:8080/api/contacts/profile/' + id,
+      url: 'http://localhost:8080/api/users/profile/' + id,
       dataType: 'json',
       success: (data) =>{
        console.log('data', data)

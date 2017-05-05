@@ -23,7 +23,7 @@ export default class ContantTable extends React.Component {
   loadData(){
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:8080/api/contacts/',
+      url: 'http://localhost:8080/api/users/',
       dataType: 'json',
       success: (data) =>{
          if (this.loadInterval != false){
@@ -70,7 +70,7 @@ export default class ContantTable extends React.Component {
       var goodJson = Jsonic(total);
       $.ajax({
         type: 'PUT',
-        url: 'http://localhost:8080/api/contacts/'+id,
+        url: 'http://localhost:8080/api/users/'+id,
         data: goodJson,
         success: function(data){
           console.log('submited data', JSON.stringify(data));
@@ -83,7 +83,7 @@ export default class ContantTable extends React.Component {
         this.setState({ name: '', address: '', phone_number:'', email:'', age:''});
         this.setState({ showModal: false });
       }
-      alert('You successfuly updated Contact \n '+  name)
+      alert('You successfuly updated User \n '+  name)
       this.loadData();
       this.forceUpdate();
       window.location = '/#/table';

@@ -9,7 +9,7 @@ import { Nav, Button, NavItem, Checkbox, Navbar, NavDropdown, MenuItem, Table, M
 export default class ContantTable extends React.Component {
   constructor() {
     super();
-    this.state = { name: '', address:'', id: '', showModal: false, items: [] };
+    this.state = { name: '', address:'', id: '', phone_number:'', age:'' , showModal: false, items: [] };
     this.close = this.close.bind(this);
     this.open= this.open.bind(this);
     this.handleRemove= this.handleRemove.bind(this);
@@ -19,7 +19,7 @@ export default class ContantTable extends React.Component {
   loadData(){
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:8080/api/contacts/',
+      url: 'http://localhost:8080/api/users/',
       dataType: 'json',
       success: (data) =>{
          if (this.loadInterval != false){
@@ -64,7 +64,7 @@ export default class ContantTable extends React.Component {
       var goodJson = Jsonic(total);
       $.ajax({
         type: 'POST',
-        url: 'http://localhost:8080/api/contacts/',
+        url: 'http://localhost:8080/api/users/',
         data: goodJson,
         success: function(data){
           console.log('submited data', JSON.stringify(data));
@@ -96,7 +96,7 @@ export default class ContantTable extends React.Component {
         if(confirm('Are you sure you want to delete  ' + item.name + ' ?')){
           $.ajax({
             type: 'DELETE',
-            url: 'http://localhost:8080/api/contacts/'+ id,
+            url: 'http://localhost:8080/api/users/'+ id,
             data: id,
             success: function(data){
 
