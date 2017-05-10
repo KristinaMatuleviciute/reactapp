@@ -20,6 +20,7 @@ class AuthService {
       data: goodJson,
       success: function(data){
         console.log('hi')
+        window.location = '/#/table';
       },
       error: (xhr, status, err) => {
         //console.log("We got an error here");

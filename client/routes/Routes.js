@@ -31,9 +31,9 @@ var Routes = (
   <Route path='/' component={App}>
   <IndexRoute component={Login} />
   <Route path='login' component={Login} />
-  <Route path='index' name='index' component={Index} onEnter={requireAuth}></Route>
-  <Route path='profile' name='profile' component={Profile} onEnter={requireAuth}></Route>
-  <Route path='gallery' name='gallery' component={Gallery} onEnter={requireAuth} ></Route>
+  <Route path='index' name='index' component={Index}></Route>
+  <Route path='profile' name='profile' component={Profile} ></Route>
+  <Route path='gallery' name='gallery' component={Gallery}  ></Route>
   <Route path='edittable' name='edittable' component={EditTable} onEnter={requireAuth}></Route>
   <Route path='table' name='table' component={ContactTable} onEnter={requireAuth}></Route>
   </Route>

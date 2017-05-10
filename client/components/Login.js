@@ -7,6 +7,7 @@ import img from '../assets/img/icon-signin.svg'
 import Auth from '../services/AuthService'
 import Button from 'react-bootstrap/lib/Button'
 import img2 from '../assets/img/beach.jpg'
+import as from '../assets/img/as.jpg'
 
 export default class Login extends React.Component {
   constructor() {
@@ -23,6 +24,7 @@ export default class Login extends React.Component {
     .catch(function(err, xhr, status) {
       alert( "User " + err.responseText)
       //alert( "Unssuccessful login. Please, check your details and try again")
+      
     });
   }
 
@@ -33,9 +35,20 @@ export default class Login extends React.Component {
   }
 
   render () {
+    <div style={{backgroundColor: '#E3F5EA', width: '100%'}}>
+    <div style={{'padding': '20px'}} >
+    <a href="#"><img className='picture' style={{'width': '300px'}} src={as}/></a>
+    <h2>Welcome </h2>
+    <h4>to my personal site
+    <p>My name is Kristina Matuleviciute. This is assignment for Enterprise Web development -
+    application made using React, Express, Webpack. </p>
+    <p> Here you will find gallery with nice pictures and quotes I like and Contact table where
+     you can add or delete entries. I hope you enjoy :)  </p>
+     </h4>
+    </div>
+    </div>
     var total = this.state.name + ' ' +  this.state.password;
-    return  <div className='loginForm' style={{backgroundImage: 'url(' + img2 + ')',
-     padding: '50px', width: '50%'}}>
+    return  <div className='loginForm'>
     <h1>Please Log In:</h1>
     <form onSubmit={this.handleSubmit.bind(this)}>
 
