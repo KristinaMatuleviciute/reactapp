@@ -96,7 +96,7 @@ Copyright (c) 2017, Kristina Matuleviciute. Licensed under [MIT].
 
 [image1]:./client/assets/img/homepage.jpg
 [image2]:./client/assets/img/galerry.jpg
-[image3]:./client/assets/img/table.jpg
+[image3]:./client/assets/img/table.png
 [Lead]: https://github.com/KristinaMatuleviciute
 [3010]: http://localhost:3010/
 [8080]: http://localhost:8080/

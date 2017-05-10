@@ -9,6 +9,7 @@ import Profile from './components/Profile';
 import Gallery from './components/Gallery';
 import Layout from './components/Layout';
 import ContactTable from './components/ContactTable';
+import EditTable from './components/EditTable';
 
 const app = document.getElementById('app');
 
@@ -20,6 +21,7 @@ ReactDOM.render(
       <Route path='profile' name='profile' component={Profile}></Route>
       <Route path='gallery' name='gallery' component={Gallery}></Route>
       <Route path='table' name='table' component={ContactTable}></Route>
+      <Route path='edittable' name='edittable' component={EditTable}></Route>
     </Route>
   </Router>,
 app)
