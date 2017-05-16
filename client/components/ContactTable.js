@@ -14,6 +14,7 @@ export default class ContantTable extends React.Component {
     this.open= this.open.bind(this);
     this.handleRemove= this.handleRemove.bind(this);
     this.loadData = this.loadData.bind(this);
+    this.exportxls = this.exportxls.bind(this);
   }
 
   loadData(){
@@ -44,7 +45,7 @@ export default class ContantTable extends React.Component {
         }
       }
 
-    componentDidMount() {
+   componentDidMount() {
        this.loadData();
        this.loadInterval = setInterval(this.loadData, 2000);
       }
@@ -52,6 +53,25 @@ export default class ContantTable extends React.Component {
     componentWillUnmount () {
         clearInterval(this.loadInterval);
       }
+
+    exportxls(event ){
+      console.log('hi');
+      event.preventDefault();
+      var data_type = 'data:application/vnd.ms-excel';
+      var table_div = document.getElementById('table_wrapper');
+      var table_html = table_div.outerHTML.replace(/ /g, '%20');
+      var a = document.createElement('a');
+      a.href = data_type + ', ' + table_html;
+      a.download = 'exported_table_' + Math.floor((Math.random() * 9999999) + 1000000) + '.xls';
+      a.click();
+
+    }
+
+   importxls( ){
+      console.log('bye');
+    }
+
+
 
     handleSubmit (event) {
       event.preventDefault();
@@ -131,7 +151,12 @@ export default class ContantTable extends React.Component {
           return (
             <div style={{backgroundColor: '#E3F5EA', width: '100%'}}>
             <div style={{'padding': '20px'}} >
-
+            <Button bsStyle="success"  className="btn pull-left" id="xls"
+            onClick={this.exportxls} > <span className="glyphicon glyphicon-export" aria-hidden="true"></span></Button>
+            <Button bsStyle="success"  className="btn pull-left" id="xls"
+            onClick={this.importxls} > <span className="glyphicon glyphicon-import" aria-hidden="true"></span></Button>
+            <br/>
+            <div id="table_wrapper">
             <Table responsive striped bordered condensed hover>
             <thead>
             <tr>
@@ -153,6 +178,7 @@ export default class ContantTable extends React.Component {
             {rows}
             </tbody>
             </Table>
+            </div>
             <Modal show={this.state.showModal} onHide={this.close}>
             <Modal.Header closeButton>
             <Modal.Title>Add </Modal.Title>
